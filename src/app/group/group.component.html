@@ -1,0 +1,53 @@
+<div class="nav-img">
+    <div class="header">
+        <h3>EXPENSE CALCULATOR</h3>
+    </div>
+    <div class="row">
+        <div class="sub-header">
+            <h2>ADD DESTINATION</h2>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                <input type="text" class="form-control" id="GroupName" formContolName="Group" placeholder="Destination"
+                    [(ngModel)]="groupName" #myInput required maxlength="15" pattern="^[a-zA-Z]+$">
+            </div>
+            <div class="btn-space">
+                <button type="submit" class="btn btn-dark button " [disabled]="!myInput.validity.valid"
+                    (click)="AddGroup()">
+                    <i class="bi bi-plus-circle"></i> Add Destination
+                </button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <hr class="solid">
+    <div class="row">
+        <div class="sub-header">
+            <h2>SEARCH DESTINATION</h2>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                <input type="text" class="form-control" id="search-text" [(ngModel)]="searchText"
+                    placeholder="Enter text to search" autofocus>
+            </div>
+        </div>
+        <br>
+        <table class="table table-fixed table-lock-height">
+            <tbody style="margin: auto;">
+                <tr *ngFor="let g of group | searchName: searchText">
+                    <td style="font-size: 20px; text-align: center;">
+                        {{g.groupName}}
+                    </td>
+                    <td>
+                        <div>
+                            <button class="btn btn-dark" style="margin-left: 0; margin-right: 10%;" type="submit"
+                                (click)="OpenExpense(g.groupId,g.groupName)"><i class="bi bi-folder2-open"></i></button>
+                            <button class="btn btn-danger" style="margin-left: 0; margin-right: 10%;" type="submit"
+                            (click)="DeleteGroup(g.groupId)"><i class="bi bi-trash"></i></button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

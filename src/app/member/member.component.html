@@ -1,0 +1,85 @@
+<div class="nav-img">
+    <nav>
+        <div class="logo">
+            <h1>Expense Calculator</h1>
+        </div>
+        <ul>
+            <li><a routerLink="/AddPayment" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a></li>
+            <li><a routerLink="/History" routerLinkActive="active" ariaCurrentWhenActive="page">History</a></li>
+            <li><a routerLink="/Vacation" routerLinkActive="active" ariaCurrentWhenActive="page"><i
+                        class="bi bi-box-arrow-right" style="margin-right: 5px;"></i>{{trip}}</a></li>
+        </ul>
+        <div class="menu">
+            <i class="bi bi-list" (click)="responsiveToggle()"></i>
+        </div>
+    </nav>
+    <div>
+        <div class="sub-header">
+            <h2>PAYMENT DETAILS</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <form #addFriendForm="ngForm" (ngSubmit)="AddFriend(addFriendForm)">
+                    <div class="mb-3">
+                        <input type="text" name="friendName" class="form-control" placeholder="Friend Name" required
+                            maxlength="15" pattern="^[a-zA-Z]+$" [(ngModel)]="friendName">
+                    </div>
+                    <button type="submit" class="btn btn-dark button " [disabled]="!addFriendForm.valid">
+                        <i class="bi bi-plus-circle"></i> Add Friend
+                    </button>
+                </form>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="shareAmount" formContolName="shareAmount"
+                        placeholder="Share Amount" [(ngModel)]="shareAmount" #myInput required maxlength="15"
+                        pattern="^[0-9]+$">
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-dark button " [disabled]="!myInput.validity.valid"
+                        (click)="UpdateGroupShare()">
+                        <i class="bi bi-plus-circle"></i> Update Share
+                    </button>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="sub-head">
+            <p>Total Friends: {{totalMembers}}</p>
+        </div>
+        <div class="sub-head">
+            <p>Group Share: {{groupAmount}}</p>
+        </div>
+
+        <br>
+        <table class="table table-striped table-fixed table-lock-height">
+            <thead>
+                <tr>
+                    <th>DELETE</th>
+                    <th>NAME</th>
+                    <th>AMOUNT PAID</th>
+                    <th>BALANCE</th>
+                    <th>PAYMENT INFO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let m of memberAmount ">
+                    <td>
+                        <button class="btn btn-danger" type="button" (click)="DeleteMember(m.memberId)"><i
+                                class="bi bi-trash"></i></button>
+                    </td>
+                    <td>{{m.memberName}}</td>
+                    <td>{{m.amountSpent}}</td>
+                    <td>{{groupAmount - m.amountSpent}}</td>
+                    <td>
+                        <button class="btn btn-warning" type="button"
+                            (click)="GoToPaymentPage(m.memberId.toString())"><i class="bi bi-info-circle"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

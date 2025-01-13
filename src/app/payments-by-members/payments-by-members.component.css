@@ -1,0 +1,173 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+nav {
+  background: #333;
+  font-size: 28px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 8px;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: #f2f2f2;
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: bolder;
+  padding: 10px;
+}
+
+nav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.nav-img {
+  background-image: url('C:/Users/rahul/source/repos/Angular/ExpenseCalc/src/images/bg.jpg');
+  background-attachment: fixed;
+  background-position: center top;
+  background-size: 100% auto;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  background-repeat: repeat;
+  position: absolute;
+  overflow-x: scroll;
+}
+
+.button {
+  font-size: 12px;
+  padding: 8px 8px;
+  font-weight: bold;
+}
+
+.header {
+  padding-top: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 2px;
+  background-color: rgba(152, 147, 147, 0.885);
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.row {
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.Align-button {
+  padding: 10px;
+
+}
+
+.center {
+  text-align: center;
+}
+
+.amountHeader {
+  text-align: center;
+}
+
+.sub-header {
+  padding-top: 50px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 2px;
+  color: black;
+  font-weight: bold;
+  font-size: 10px;
+  text-align: center;
+}
+
+.table-fixed {
+
+  thead>tr,
+  tbody>tr {
+    display: flex;
+    justify-content: space-around;
+    flex: 0 0 auto;
+
+    th,
+    td {
+      flex: 1;
+    }
+  }
+
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 5px;
+
+  tbody {
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+  }
+}
+
+.table-lock-height>tbody {
+  height: 50vh;
+  width: auto;
+}
+
+.menu {
+  cursor: pointer;
+  display: none;
+}
+
+@media all and (max-width:640px) {
+  nav {
+    flex-direction: column;
+  }
+
+  nav li {
+    display: block;
+    padding: 10px 0;
+  }
+
+  ul {
+    text-align: center;
+    display: none;
+  }
+
+  .logo {
+    align-self: flex-start;
+    margin: 10px 0 0 30px;
+  }
+
+  .menu {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    color: white;
+  }
+
+  .showmenu {
+    display: block;
+  }
+}

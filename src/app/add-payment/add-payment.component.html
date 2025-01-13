@@ -1,0 +1,65 @@
+<div class="nav-img">
+    <nav>
+        <div class="logo">
+            <h1>Expense Calculator</h1>
+        </div>
+        <ul>
+            <li><a routerLink="/AddPayment" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a></li>
+            <li><a routerLink="/Friends" routerLinkActive="active" ariaCurrentWhenActive="page">Friends</a></li>
+            <li><a routerLink="/History" routerLinkActive="active" ariaCurrentWhenActive="page">History</a></li>
+            <li><a routerLink="/Vacation" routerLinkActive="active" ariaCurrentWhenActive="page"><i
+                        class="bi bi-box-arrow-right" style="margin-right: 5px;"></i>{{trip}}</a></li>
+        </ul>
+        <div class="menu">
+            <i class="bi bi-list" (click)="responsiveToggle()"></i>
+        </div>
+    </nav>
+    <div>
+        <div class="header">
+            <h2>ADD PAYMENT</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <form #addPaymentForm="ngForm" (ngSubmit)="AddPaymentDetails(addPaymentForm)">
+                    <div class="mb-3 ">
+                        <label for="start">Payment Date</label>
+                        <input type="date" name="PaymentDate" class="form-control" required [(ngModel)]="PaymentDate">
+                    </div>
+                    <div class="mb-3">
+                        <label for="start">Category</label>
+                        <select id="category" name="category" [ngModel]="category" class="form-control" required>
+                            <option *ngFor="let c of category" [ngValue]="c.categoryId">{{c.categoryName}}</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="start">Paid By</label>
+                        <select id="friends" name="friends" [ngModel]="friends" class="form-control" required>
+                            <option *ngFor="let f of friends" [ngValue]="f.memberId">{{f.memberName}}</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="start">Amount</label>
+                        <input type="text" name="Amount" class="form-control" required maxlength="15" pattern="^[0-9]+$"
+                            [(ngModel)]="Amount">
+                    </div>
+                    <div class="mb-3">
+                        <label for="start">Payment Type</label>
+                        <select id="PaymentType" name="PaymentType" [(ngModel)]="PaymentType" class="form-control"
+                            required>
+                            <option value="CASH">CASH</option>
+                            <option value="UPI">UPI</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="start">Notes</label>
+                        <input type="text" name="Notes" class="form-control" required maxlength="50"
+                            pattern="^[a-zA-Z ]+$" [(ngModel)]="Notes">
+                    </div>
+                    <button type="submit" class="btn btn-dark button " [disabled]="!addPaymentForm.valid">
+                        <i class="bi bi-plus-circle"></i> Add Payment
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

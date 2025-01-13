@@ -1,0 +1,21 @@
+{
+    "getAllFriends": "https://localhost:44330/api/Member/GetAllFriends",
+    "getAllCategories": "https://localhost:44330/api/Category/GetAllCategories",
+    "getPayment" : "https://localhost:44330/api/Payment/GetPayment",
+    "getAllGroups" : "https://localhost:44330/api/Group/GetAllGroups",
+    "getAmountCategory" : "https://localhost:44330/api/Category/GetAmountCategory",
+    "getAmountSpentByMembers" : "https://localhost:44330/api/Member/GetAmountSpentbyMembers",
+    "getMemberPaymentDetails" : "https://localhost:44330/api/Member/GetMemberPaymentDetails",
+    "getAmountCollectedByType" : "https://localhost:44330/api/Payment/GetAmountCollectedByType",
+    "getTripAdvisor" : "https://localhost:44330/api/Member/GetTripAdvisor",
+    "getGroupShare" : "https://localhost:44330/api/Group/GetGroupShareAmount",
+    "advisorPayments" : "https://localhost:44330/api/Payment/AdvisorPayments",
+    "addFriend" : "https://localhost:44330/api/Member/AddFriend",
+    "addCategory" : "https://localhost:44330/api/Category/AddCategory",
+    "addPayment" : "https://localhost:44330/api/Payment/AddPayment",
+    "addGroup" : "https://localhost:44330/api/Group/AddGroup",
+    "deleteGroup" : "https://localhost:44330/api/Group/DeleteGroup",
+    "deleteFriend" : "https://localhost:44330/api/Member/DeleteFriend",
+    "deletePayment" : "https://localhost:44330/api/Payment/DeletePayment",
+    "updateGroupShare" : "https://localhost:44330/api/Group/UpdateGroupShare"
+}
